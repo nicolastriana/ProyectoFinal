@@ -46,7 +46,7 @@ public class CreateDataBase {
                                 "Tematica VARCHAR(250) NOT NULL," +
                                 "Localizacion VARCHAR(250) NOT NULL," +
                                 "Fecha VARCHAR(100) NOT NULL," +
-                                "IDproyecto INTEGER NOT NULL," +
+                                "IDProyecto INTEGER NOT NULL," +
                                 "IDCliente INTEGER NOT NULL," +
                                 "PRIMARY KEY(IDInforme)," +
                                 "FOREIGN KEY(IDCliente) REFERENCES Cliente(IDCliente));";

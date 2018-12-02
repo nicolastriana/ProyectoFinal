@@ -23,9 +23,9 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Siglas</th>
+        <th name="id_cliente">ID</th>
+        <th name="nombre">Nombre</th>
+        <th name="siglas">Siglas</th>
       </tr>
     </thead>
     <tbody>

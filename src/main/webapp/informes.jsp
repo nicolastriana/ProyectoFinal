@@ -23,14 +23,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Categoria</th>
-        <th>Formato</th>
-        <th>Tematica</th>
-        <th>Localizacion</th>
-        <th>Fecha</th>
-        <th>ID Proyecto</th>
-        <th>ID Cliente</th>
+        <th name="id_informe">ID</th>
+        <th name="categoria">Categoria</th>
+        <th name="nombre">Nombre</th>
+        <th name="tematica">Tematica</th>
+        <th name="localizacion">Localizacion</th>
+        <th name="fecha">Fecha</th>
+        <th name="id_proyecto">ID Proyecto</th>
+        <th name="id_cliente">ID Cliente</th>
       </tr>
     </thead>
     <tbody>

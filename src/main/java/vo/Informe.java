@@ -13,13 +13,21 @@ public class Informe {
     
     private int IDInforme;
     private int Categoria;
-    private String Formato;
+    private String Nombre;
     private String Tematica;
     private String Localizacion;
     private String Fecha;
     private int IDProyecto;
     private int IDCliente;
 
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+    
     public int getIDCliente() {
         return IDCliente;
     }
@@ -42,14 +50,6 @@ public class Informe {
 
     public void setIDInforme(int IDInforme) {
         this.IDInforme = IDInforme;
-    }
-
-    public String getFormato() {
-        return Formato;
-    }
-
-    public void setFormato(String Formato) {
-        this.Formato = Formato;
     }
 
     public String getTematica() {
