@@ -12,12 +12,30 @@ package vo;
 public class Informe {
     
     private int IDInforme;
+    private int Categoria;
     private String Formato;
     private String Tematica;
     private String Localizacion;
     private int Fecha;
     private int IDProyecto;
+    private int IDCliente;
 
+    public int getIDCliente() {
+        return IDCliente;
+    }
+
+    public void setIDCliente(int IDCliente) {
+        this.IDCliente = IDCliente;
+    }
+    
+    public int getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(int Categoria) {
+        this.Categoria = Categoria;
+    }
+   
     public int getIDInforme() {
         return IDInforme;
     }

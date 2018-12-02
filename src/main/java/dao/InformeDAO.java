@@ -32,6 +32,8 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    int id_informe = 0;
             int fecha = 0;
             int id_proyecto = 0;
+            int categoria = 0;
+            int id_cliente = 0;
 	    String formato = null;
             String tematica = null;
             String localizacion = null;
@@ -43,6 +45,10 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	        resultado.setFecha(fecha);
                 id_proyecto = rs.getInt("id_proyecto");
 	        resultado.setIDProyecto(id_proyecto);
+                categoria = rs.getInt("categoria");
+	        resultado.setCategoria(categoria);
+                id_cliente = rs.getInt("id_cliente");
+	        resultado.setIDCliente(id_cliente);
 	        formato = rs.getString("formato");
 	        resultado.setFormato(formato);
 	        tematica = rs.getString("tematica");
@@ -69,6 +75,8 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    int id_informe = 0;
             int fecha = 0;
             int id_proyecto = 0;
+            int categoria = 0;
+            int id_cliente = 0;
 	    String formato = null;
             String tematica = null;
             String localizacion = null;
@@ -83,6 +91,10 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	        registro.setFecha(fecha);
                 id_proyecto = rs.getInt("id_proyecto");
 	        registro.setIDProyecto(id_proyecto);
+                categoria = rs.getInt("categoria");
+	        registro.setCategoria(categoria);
+                id_cliente = rs.getInt("id_cliente");
+	        registro.setIDCliente(id_cliente);
 	        formato = rs.getString("formato");
 	        registro.setFormato(formato);
 	        tematica = rs.getString("tematica");
@@ -105,16 +117,18 @@ public class InformeDAO implements IBaseDatos<Informe>{
     public boolean insert(Informe informe) throws SQLException {
         boolean result = false;
 	Connection connection = Conexion.getConnection();
-        String query = " insert into Informe" + " values (?,?,?,?,?,?)";
+        String query = " insert into Informe" + " values (?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = connection.prepareStatement(query);
 	    preparedStmt.setInt(1, informe.getIDInforme());
-            preparedStmt.setString(2, informe.getFormato());
-            preparedStmt.setString(3, informe.getTematica());           
-            preparedStmt.setString(4, informe.getLocalizacion());
-            preparedStmt.setInt(5, informe.getFecha());
-            preparedStmt.setInt(6, informe.getIDProyecto());            
+            preparedStmt.setInt(2, informe.getCategoria());
+            preparedStmt.setString(3, informe.getFormato());
+            preparedStmt.setString(4, informe.getTematica());           
+            preparedStmt.setString(5, informe.getLocalizacion());
+            preparedStmt.setInt(6, informe.getFecha());
+            preparedStmt.setInt(7, informe.getIDProyecto());          
+            preparedStmt.setInt(8, informe.getIDCliente());          
 	    result= preparedStmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,17 +140,19 @@ public class InformeDAO implements IBaseDatos<Informe>{
     public boolean update(Informe informe) throws SQLException {
         boolean result = false; 
 	Connection connection = Conexion.getConnection();
-	String query = "update Informe set Formato = ?, Tematica = ?, Localizacion = ?,"
-                + " Fecha = ?, IDProyecto = ? where IDInforme = ?";
+	String query = "update Informe set Categoria = ?, Formato = ?, Tematica = ?, Localizacion = ?,"
+                + " Fecha = ?, IDProyecto = ?, IDCliente = ? where IDInforme = ?";
 	PreparedStatement preparedStmt=null;
 	try {
 	    preparedStmt = connection.prepareStatement(query);
-	    preparedStmt.setString(1, informe.getFormato());
-            preparedStmt.setString(2, informe.getTematica());
-            preparedStmt.setString(3, informe.getLocalizacion());
-            preparedStmt.setInt(4, informe.getFecha());
-            preparedStmt.setInt(5, informe.getIDProyecto());
-            preparedStmt.setInt(6, informe.getIDInforme());
+            preparedStmt.setInt(1, informe.getCategoria());
+	    preparedStmt.setString(2, informe.getFormato());            
+            preparedStmt.setString(3, informe.getTematica());
+            preparedStmt.setString(4, informe.getLocalizacion());
+            preparedStmt.setInt(5, informe.getFecha());
+            preparedStmt.setInt(6, informe.getIDProyecto());
+            preparedStmt.setInt(7, informe.getIDCliente());
+            preparedStmt.setInt(8, informe.getIDInforme());
                     
 	    if (preparedStmt.executeUpdate() > 0){
 	   	result=true;

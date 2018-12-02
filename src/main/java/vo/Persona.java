@@ -11,20 +11,44 @@ package vo;
  */
 public class Persona {
     
-    private int ID;
+    private int IDPersona;
     private String Nombre;
     private String Apellido;
     private String Profesion;
-    /*private int IDTecnica;
+    private int IDTecnica;
     private int IDGerencia;
-    private int IDAdministracion;*/
+    private int IDAdministracion;
 
-    public int getID() {
-        return ID;
+    public int getIDPersona() {
+        return IDPersona;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIDPersona(int IDPersona) {
+        this.IDPersona = IDPersona;
+    }
+    
+    public int getIDTecnica() {
+        return IDTecnica;
+    }
+
+    public void setIDTecnica(int IDTecnica) {
+        this.IDTecnica = IDTecnica;
+    }
+
+    public int getIDGerencia() {
+        return IDGerencia;
+    }
+
+    public void setIDGerencia(int IDGerencia) {
+        this.IDGerencia = IDGerencia;
+    }
+
+    public int getIDAdministracion() {
+        return IDAdministracion;
+    }
+
+    public void setIDAdministracion(int IDAdministracion) {
+        this.IDAdministracion = IDAdministracion;
     }
 
     public String getNombre() {

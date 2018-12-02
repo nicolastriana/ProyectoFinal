@@ -1,17 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
-import dao.ClienteDAO;
-import javax.servlet.http.HttpServlet;
 
+ 
+import dao.ClienteDAO;
+import vo.Cliente;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
+ 
 /**
- *
- * @author Nicolas Triana
+ * @author Crunchify.com
  */
-public class ClienteServlet extends HttpServlet{
-    private ClienteDAO dao;
+ 
+public class ClienteServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // reading the user input
+        String id = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
+        
+        //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
+        DepartamentoDAO dao = new DepartamentoDAO();
+        
+        Departamento departamento = new Departamento();
+        departamento.setId_departamento(Integer.parseInt(id));
+        departamento.setNom_departamento(nombre);
+        dao.insert(departamento);
+        
+        //Listando la informacion  
+        List<Departamento> departamentos =  dao.findAll();
+        request.setAttribute("departamentos", departamentos);
+       
+       
+        //Redireccionando la informacion
+        RequestDispatcher redireccion = request.getRequestDispatcher("index.jsp");
+        redireccion.forward(request, response);
+        
+        
+        
+        }
 }
