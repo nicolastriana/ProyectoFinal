@@ -15,40 +15,22 @@ public class Persona {
     private String Nombre;
     private String Apellido;
     private String Profesion;
-    private int IDTecnica;
-    private int IDGerencia;
-    private int IDAdministracion;
+    private String Departamento;
 
+    public String getDepartamento() {
+        return Departamento;
+    }
+
+    public void setDepartamento(String Departamento) {
+        this.Departamento = Departamento;
+    }
+    
     public int getIDPersona() {
         return IDPersona;
     }
 
     public void setIDPersona(int IDPersona) {
         this.IDPersona = IDPersona;
-    }
-    
-    public int getIDTecnica() {
-        return IDTecnica;
-    }
-
-    public void setIDTecnica(int IDTecnica) {
-        this.IDTecnica = IDTecnica;
-    }
-
-    public int getIDGerencia() {
-        return IDGerencia;
-    }
-
-    public void setIDGerencia(int IDGerencia) {
-        this.IDGerencia = IDGerencia;
-    }
-
-    public int getIDAdministracion() {
-        return IDAdministracion;
-    }
-
-    public void setIDAdministracion(int IDAdministracion) {
-        this.IDAdministracion = IDAdministracion;
     }
 
     public String getNombre() {
@@ -74,30 +56,4 @@ public class Persona {
     public void setProfesion(String Profesion) {
         this.Profesion = Profesion;
     }
-
-   /* public int getIDTecnica() {
-        return IDTecnica;
-    }
-
-    public void setIDTecnica(int IDTecnica) {
-        this.IDTecnica = IDTecnica;
-    }
-
-    public int getIDGerencia() {
-        return IDGerencia;
-    }
-
-    public void setIDGerencia(int IDGerencia) {
-        this.IDGerencia = IDGerencia;
-    }
-
-    public int getIDAdministracion() {
-        return IDAdministracion;
-    }
-
-    public void setIDAdministracion(int IDAdministracion) {
-        this.IDAdministracion = IDAdministracion;
-    }*/
-    
-    
 }

@@ -30,25 +30,25 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    Statement st = connection.createStatement();
 	    ResultSet rs = st.executeQuery(query);
 	    int id_informe = 0;
-            int fecha = 0;
             int id_proyecto = 0;
             int categoria = 0;
             int id_cliente = 0;
+            String fecha = null;
 	    String formato = null;
             String tematica = null;
             String localizacion = null;
 	    if (rs.next()){
                 resultado = new Informe();
 	        id_informe = rs.getInt("id_informe");
-	        resultado.setIDInforme(IDInforme);
-                fecha = rs.getInt("fecha");
-	        resultado.setFecha(fecha);
+	        resultado.setIDInforme(IDInforme);                
                 id_proyecto = rs.getInt("id_proyecto");
 	        resultado.setIDProyecto(id_proyecto);
                 categoria = rs.getInt("categoria");
 	        resultado.setCategoria(categoria);
                 id_cliente = rs.getInt("id_cliente");
 	        resultado.setIDCliente(id_cliente);
+                fecha = rs.getString("fecha");
+                resultado.setFecha(fecha);
 	        formato = rs.getString("formato");
 	        resultado.setFormato(formato);
 	        tematica = rs.getString("tematica");
@@ -73,10 +73,10 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    Statement st = connection.createStatement();
 	    ResultSet rs = st.executeQuery(query);
 	    int id_informe = 0;
-            int fecha = 0;
             int id_proyecto = 0;
             int categoria = 0;
             int id_cliente = 0;
+            String fecha = null;
 	    String formato = null;
             String tematica = null;
             String localizacion = null;
@@ -86,15 +86,15 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    	}
 	        Informe registro = new Informe();
 	        id_informe = rs.getInt("id_informe");
-	        registro.setIDInforme(id_informe);
-                fecha = rs.getInt("fecha");
-	        registro.setFecha(fecha);
+	        registro.setIDInforme(id_informe);               
                 id_proyecto = rs.getInt("id_proyecto");
 	        registro.setIDProyecto(id_proyecto);
                 categoria = rs.getInt("categoria");
 	        registro.setCategoria(categoria);
                 id_cliente = rs.getInt("id_cliente");
 	        registro.setIDCliente(id_cliente);
+                fecha = rs.getString("fecha");
+	        registro.setFecha(fecha);
 	        formato = rs.getString("formato");
 	        registro.setFormato(formato);
 	        tematica = rs.getString("tematica");
@@ -126,7 +126,7 @@ public class InformeDAO implements IBaseDatos<Informe>{
             preparedStmt.setString(3, informe.getFormato());
             preparedStmt.setString(4, informe.getTematica());           
             preparedStmt.setString(5, informe.getLocalizacion());
-            preparedStmt.setInt(6, informe.getFecha());
+            preparedStmt.setString(6, informe.getFecha());
             preparedStmt.setInt(7, informe.getIDProyecto());          
             preparedStmt.setInt(8, informe.getIDCliente());          
 	    result= preparedStmt.execute();
@@ -149,7 +149,7 @@ public class InformeDAO implements IBaseDatos<Informe>{
 	    preparedStmt.setString(2, informe.getFormato());            
             preparedStmt.setString(3, informe.getTematica());
             preparedStmt.setString(4, informe.getLocalizacion());
-            preparedStmt.setInt(5, informe.getFecha());
+            preparedStmt.setString(5, informe.getFecha());
             preparedStmt.setInt(6, informe.getIDProyecto());
             preparedStmt.setInt(7, informe.getIDCliente());
             preparedStmt.setInt(8, informe.getIDInforme());

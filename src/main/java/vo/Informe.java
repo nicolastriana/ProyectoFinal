@@ -16,7 +16,7 @@ public class Informe {
     private String Formato;
     private String Tematica;
     private String Localizacion;
-    private int Fecha;
+    private String Fecha;
     private int IDProyecto;
     private int IDCliente;
 
@@ -68,11 +68,11 @@ public class Informe {
         this.Localizacion = Localizacion;
     }
 
-    public int getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(int Fecha) {
+    public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
 

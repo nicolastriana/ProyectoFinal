@@ -5,6 +5,9 @@
  */
 package conexion;
 
+import dao.ClienteDAO;
+import dao.InformeDAO;
+import dao.PersonaDAO;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -18,18 +21,62 @@ import java.util.logging.Logger;
  */
 public class CreateDataBase {
      public static void run(){
-          String sql = "CREATE TABLE Depto(id_depto integer,nom_depto varchar(40), PRIMARY KEY(id_depto))";
+        String sql_cliente = "CREATE TABLE Cliente(" +
+                                "IDCliente INTEGER NOT NULL," +
+                                "NombreCliente VARCHAR(250) NOT NULL," +
+                                "Siglas VARCHAR(50)," +
+                                "PRIMARY KEY(IDCliente));";
+        
           Connection connection = null;
             try {
                 connection = Conexion.getConnection();
                 Statement stmt = connection.createStatement();
-                stmt.executeUpdate(sql);
+                stmt.executeUpdate(sql_cliente); 
                 
             } catch (URISyntaxException ex) {
-                Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
              Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
-         }
-          
+        }
+        
+        String sql_informe = "CREATE TABLE Informe(" +
+                                "IDInforme INTEGER NOT NULL," +
+                                "Categoria INTEGER NOT NULL," +
+                                "Formato VARCHAR(50) NOT NULL," +
+                                "Tematica VARCHAR(250) NOT NULL," +
+                                "Localizacion VARCHAR(250) NOT NULL," +
+                                "Fecha VARCHAR(100) NOT NULL," +
+                                "IDproyecto INTEGER NOT NULL," +
+                                "IDCliente INTEGER NOT NULL," +
+                                "PRIMARY KEY(IDInforme)," +
+                                "FOREIGN KEY(IDCliente) REFERENCES Cliente(IDCliente));";
+            try {
+                connection = Conexion.getConnection();
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate(sql_informe);
+                
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(InformeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+             Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String sql_persona = "CREATE TABLE Persona(\n" +
+                                "IDPersona INTEGER NOT NULL,\n" +
+                                "Nombre VARCHAR(250) NOT NULL,\n" +
+                                "Apellido VARCHAR(250) NOT NULL,\n" +
+                                "Profesion VARCHAR(250) NOT NULL,\n" +
+                                "Departamento VARCHAR(50) NOT NULL,\n" +
+                                "PRIMARY KEY(IDPersona));";
+            try {
+                connection = Conexion.getConnection();
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate(sql_persona);
+                
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+             Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
      }
 }
