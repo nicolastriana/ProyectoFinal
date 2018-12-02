@@ -1,41 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="edu.co.sergio.mundo.vo.*"%>
-<%@ page import="java.util.List" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-    "http://www.w3.org/TR/html4/loose.dtd">
+<%-- 
+    Document   : index
+    Created on : 28/11/2018, 11:30:59 PM
+    Author     : Nicolas Triana
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<style type="text/css">
-body {
-    background-image:
-        url('http://cdn.crunchify.com/wp-content/uploads/2013/03/Crunchify.bg_.300.png');
-}
-</style>
- 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crunchify JSP Servlet Example</title>
-</head>
-<body>
-    <div align="center" style="margin-top: 50px;">
-        <form action="CrunchifyServlet">
-           Id Depto:  <input type="text" name="id" size="20px"> <br>
-           Nombre Depto:  <input type="text" name="nombre" size="20px"> <br><br>
-        <input type="submit" value="submit">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ATG Ltda</title>
+        <style>
+            form{
+                margin: auto;
+                /*width: 18%;*/
+                max-width: 500px;
+                background: #F3F3F3;
+                padding: 12px;
+                border: 2px solid rgba(0,0,0,0.2);
+            }
+
+            input{
+                display: block;
+                padding: 10px;
+                width: 95%;
+                margin: 30px 0;
+                font-size: 20px;
+
+            }
+
+            input[type="submit"]{
+                background: linear-gradient(#FFDA63, #FFB940);
+                border: 0;
+                color: brown;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 20px;
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+            input[type="submit"]:hover{
+                opacity: 1;
+            }
+
+            input[type="submit"]:active{
+                transform: scale(0.95); 
+            }   
+        </style>
+    </head>
+    <body>
+        <form action="">
+                <h1 align="center"> Formulario </h1>
+                <input type="text" placeholder="&#128272; Usuario" name="usuario">
+                <input type="password" placeholder="&#128272; Contraseña" name="clave">
+                <input type="submit" value="Ingresar">
         </form>
-     </div>
- 
-    <%
-       if( request.getAttribute("departamentos")!=null){
-          List<Departamento> departamentos  = (List<Departamento>)request.getAttribute("departamentos");
-           for (Departamento departamento : departamentos) {
-         %>      
-         <h1> <%=departamento.getNom_departamento()%> </h1><br/> 
-         <%      
-          }
-       }
-      
-    
-    %>
-</body>
+    </body>
 </html>

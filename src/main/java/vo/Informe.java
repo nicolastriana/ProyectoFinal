@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package vo;
+
+/**
+ *
+ * @author Laura Parada
+ */
+public class Informe {
+    
+    private int IDInforme;
+    private String Formato;
+    private String Tematica;
+    private String Localizacion;
+    private int Fecha;
+    private int IDProyecto;
+
+    public int getIDInforme() {
+        return IDInforme;
+    }
+
+    public void setIDInforme(int IDInforme) {
+        this.IDInforme = IDInforme;
+    }
+
+    public String getFormato() {
+        return Formato;
+    }
+
+    public void setFormato(String Formato) {
+        this.Formato = Formato;
+    }
+
+    public String getTematica() {
+        return Tematica;
+    }
+
+    public void setTematica(String Tematica) {
+        this.Tematica = Tematica;
+    }
+
+    public String getLocalizacion() {
+        return Localizacion;
+    }
+
+    public void setLocalizacion(String Localizacion) {
+        this.Localizacion = Localizacion;
+    }
+
+    public int getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(int Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public int getIDProyecto() {
+        return IDProyecto;
+    }
+
+    public void setIDProyecto(int IDProyecto) {
+        this.IDProyecto = IDProyecto;
+    }
+
+    
+    
+}
