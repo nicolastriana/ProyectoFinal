@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package conexion;
-
-import dao.ClienteDAO;
-import dao.InformeDAO;
-import dao.PersonaDAO;
+import dao.*;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,12 +12,13 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
- * @author Fabian Giraldo
+ * @author Nicolas Triana
  */
 public class CreateDataBase {
-     public static void run(){
+public static void run(){
         String sql_cliente = "CREATE TABLE Cliente(" +
                                 "IDCliente INTEGER NOT NULL," +
                                 "NombreCliente VARCHAR(250) NOT NULL," +
@@ -33,8 +31,6 @@ public class CreateDataBase {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql_cliente); 
                 
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
              Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -55,8 +51,6 @@ public class CreateDataBase {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql_informe);
                 
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(InformeDAO.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
              Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,8 +67,6 @@ public class CreateDataBase {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql_persona);
                 
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
              Logger.getLogger(CreateDataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
